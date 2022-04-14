@@ -8,6 +8,11 @@ import { InscriptionForm } from './forms/InscriptionForm';
 import { PaiementGatewayForm } from './forms/PaiementGatewayForm';
 import { TelechargementForm } from './forms/TelechargementForm';
 
+import { Header } from './Header';
+import { Footer } from './Footer';
+import { MainLayout } from './layouts/MainLayout';
+import { MainMenu } from './MainMenu';
+
 export const Components = {
     UtilisateurForm,
 	AdministrateurForm,
@@ -18,5 +23,8 @@ export const Components = {
 	InscriptionForm,
 	PaiementGatewayForm,
 	TelechargementForm,
-	
+	Header,
+	Footer,
+	MainLayout,
+	MainMenu
 }
