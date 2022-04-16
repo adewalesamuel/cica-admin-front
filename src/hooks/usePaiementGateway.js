@@ -10,34 +10,34 @@ export const usePaiementGateway = () => {
     const [errors, setErrors] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
 
-    const getPaiementGateway = (paiementgatewayId, abortController) => {        
-        return Services.PaiementGatewayService.getById(paiementgatewayId, abortController.signal)
-        .then(paiementgateway => {
-            fillPaiementGateway(paiementgateway);
+    const getPaiementGateway = (paiementgatewayId, signal) => {        
+        return Services.PaiementGatewayService.getById(paiementgatewayId, signal)
+        .then(response => {
+            fillPaiementGateway(response.paiementgateway);
             setIsDisabled(false);
         });
     }
 
-    const createPaiementGateway = abortController => {
+    const createPaiementGateway = signal => {
         const payload = {
             nom,
 		infos_connexion,
 		
         };
 
-        return Services.PaiementGatewayService.create(JSON.stringify(payload), abortController.signal);
+        return Services.PaiementGatewayService.create(JSON.stringify(payload), signal);
     }
-    const updatePaiementGateway = (paiementgatewayId, abortController) => {
+    const updatePaiementGateway = (paiementgatewayId, signal) => {
         const payload = {
             nom,
 		infos_connexion,
 		
         };
 
-        return Services.PaiementGatewayService.update(paiementgatewayId, JSON.stringify(payload), abortController.signal);
+        return Services.PaiementGatewayService.update(paiementgatewayId, JSON.stringify(payload), signal);
     }
-    const deletePaiementGateway = (paiementgatewayId, abortController) => {
-        return Services.PaiementGatewayService.destroy(paiementgatewayId, abortController.signal);
+    const deletePaiementGateway = (paiementgatewayId, signal) => {
+        return Services.PaiementGatewayService.destroy(paiementgatewayId, signal);
     }
     const fillPaiementGateway = (paiementgateway) => {
         setId(paiementgateway.id);

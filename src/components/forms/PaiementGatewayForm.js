@@ -5,7 +5,7 @@ export function PaiementGatewayForm(props) {
         <form className='form' disabled={props.isDisabled ?? false}
         onSubmit={props.handleFormSubmit ?? null}>
             <div className='row'>
-                <div className='col-6'>
+                <div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='nom'>Nom</label>
                         <input className='form-control' type='text' id='nom' name='nom' 
@@ -14,7 +14,7 @@ export function PaiementGatewayForm(props) {
                         onChange={ e => props.usePaiementGateway.setNom(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='infos_connexion'>Infos_connexion</label>
                         <input className='form-control' type='text' id='infos_connexion' name='infos_connexion' 
@@ -24,10 +24,12 @@ export function PaiementGatewayForm(props) {
                     </div>
                 </div>
 				
-                <button disabled={props.isDisabled ?? false} type='button' className='btn btn-primary' 
-                onClick={props.handleFormSubmit}>
-                    <span>Enregistrer</span>
-                </button>
+                <div className='col-12 text-right'>
+                    <button disabled={props.isDisabled ?? false} type='button' className='btn btn-primary' 
+                    onClick={props.handleFormSubmit}>
+                        <span>Enregistrer</span>
+                    </button>
+                </div>
             </div>
         </form>
     )

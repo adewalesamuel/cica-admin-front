@@ -65,19 +65,19 @@ export function Header(props) {
                         </button>
                         <div className="dropdown-menu dropdown-menu-right">
                 
-                            <a href="javascript:void(0);" className="dropdown-item notify-item">
+                            <a href="" className="dropdown-item notify-item">
                                 <img src="assets/images/flags/spain.jpg" alt="user-image" className="mr-2" height="12" /><span className="align-middle">Spanish</span>
                             </a>
 
-                            <a href="javascript:void(0);" className="dropdown-item notify-item">
+                            <a href="" className="dropdown-item notify-item">
                                 <img src="assets/images/flags/germany.jpg" alt="user-image" className="mr-2" height="12" /><span className="align-middle">German</span>
                             </a>
 
-                            <a href="javascript:void(0);" className="dropdown-item notify-item">
+                            <a href="" className="dropdown-item notify-item">
                                 <img src="assets/images/flags/italy.jpg" alt="user-image" className="mr-2" height="12" /><span className="align-middle">Italian</span>
                             </a>
 
-                            <a href="javascript:void(0);" className="dropdown-item notify-item">
+                            <a href="" className="dropdown-item notify-item">
                                 <img src="assets/images/flags/russia.jpg" alt="user-image" className="mr-2" height="12" /><span className="align-middle">Russian</span>
                             </a>
                         </div>
@@ -175,7 +175,7 @@ export function Header(props) {
                                 </a>
                             </div>
                             <div className="p-2 border-top">
-                                <a className="btn-link btn btn-block text-center" href="javascript:void(0)">
+                                <a className="btn-link btn btn-block text-center" href="#">
                                     <i className="mdi mdi-arrow-down-circle mr-1"></i> Load More..
                                 </a>
                             </div>

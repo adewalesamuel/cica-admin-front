@@ -2,93 +2,94 @@ import { useState } from 'react';
 import { Services } from '../services';
 
 export const useResume = () => {
+    const statuses = ['brouillon', 'soumis', 'relecture', 'termine'];
+
     const [id, setId] = useState('');
 	const [titre, setTitre] = useState('');
-	const [mot_cles, setMot_cles] = useState('');
+	const [mots_cles, setMots_cles] = useState('');
 	const [auteurs, setAuteurs] = useState('');
 	const [contenu, setContenu] = useState('');
-	const [status, setStatus] = useState('');
-	const [utilsateur_id, setUtilsateur_id] = useState('');
-	
+	const [status, setStatus] = useState(statuses[0]);
+	const [utilisateur_id, setUtilisateur_id] = useState('');
 
     const [errors, setErrors] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
 
-    const getResume = (resumeId, abortController) => {        
-        return Services.ResumeService.getById(resumeId, abortController.signal)
-        .then(resume => {
-            fillResume(resume);
-            setIsDisabled(false);
+    const getResume = (resumeId, signal) => {        
+        return Services.ResumeService.getById(resumeId, signal)
+        .then(response => {
+            fillResume(response.resume);
         });
     }
 
-    const createResume = abortController => {
+    const createResume = signal => {
         const payload = {
             titre,
-		mot_cles,
-		auteurs,
+		mots_cles,
+		auteurs: JSON.stringify(auteurs),
 		contenu,
 		status,
-		utilsateur_id,
+		utilisateur_id,
 		
         };
 
-        return Services.ResumeService.create(JSON.stringify(payload), abortController.signal);
+        return Services.ResumeService.create(JSON.stringify(payload), signal);
     }
-    const updateResume = (resumeId, abortController) => {
+    const updateResume = (resumeId, signal) => {
         const payload = {
             titre,
-		mot_cles,
-		auteurs,
+		mots_cles,
+		auteurs: JSON.stringify(auteurs),
 		contenu,
 		status,
-		utilsateur_id,
+		utilisateur_id,
 		
         };
 
-        return Services.ResumeService.update(resumeId, JSON.stringify(payload), abortController.signal);
+        return Services.ResumeService.update(resumeId, JSON.stringify(payload), signal);
     }
-    const deleteResume = (resumeId, abortController) => {
-        return Services.ResumeService.destroy(resumeId, abortController.signal);
+    const deleteResume = (resumeId, signal) => {
+        return Services.ResumeService.destroy(resumeId, signal);
     }
     const fillResume = (resume) => {
         setId(resume.id);
         setTitre(resume.titre ?? '');
-		setMot_cles(resume.mot_cles ?? '');
-		setAuteurs(resume.auteurs ?? '');
+		setMots_cles(resume.mots_cles ?? '');
+		setAuteurs(resume.auteurs ? JSON.parse(resume.auteurs): '');
 		setContenu(resume.contenu ?? '');
 		setStatus(resume.status ?? '');
-		setUtilsateur_id(resume.utilsateur_id ?? '');
+		setUtilisateur_id(resume.utilisateur_id ?? '');
 		
     }
     const emptyResume = () => {
         setId('');
         setTitre('');
-		setMot_cles('');
+		setMots_cles('');
 		setAuteurs('');
 		setContenu('');
 		setStatus('');
-		setUtilsateur_id('');
+		setUtilisateur_id('');
 		
     }
 
     return {
         id,
         titre,
-		mot_cles,
+		mots_cles,
 		auteurs,
 		contenu,
 		status,
-		utilsateur_id,
+        statuses,
+		utilisateur_id,
 		
         errors,
         isDisabled,
         setTitre,
-		setMot_cles,
+		setMots_cles,
 		setAuteurs,
 		setContenu,
 		setStatus,
-		setUtilsateur_id,
+		setUtilisateur_id,
 		
         setId,
         setErrors,

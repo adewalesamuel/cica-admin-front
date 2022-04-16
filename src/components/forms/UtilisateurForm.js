@@ -5,7 +5,16 @@ export function UtilisateurForm(props) {
         <form className='form' disabled={props.isDisabled ?? false}
         onSubmit={props.handleFormSubmit ?? null}>
             <div className='row'>
-                <div className='col-6'>
+                <div className='col-12'>
+                    <div className='form-group'>
+                        <label htmlFor='nom'>Nom</label>
+                        <input className='form-control' type='text' id='nom' name='nom' 
+                        placeholder='Nom' value={props.useUtilisateur.nom ?? ''}
+                        disabled={props.isDisabled} 
+                        onChange={ e => props.useUtilisateur.setNom(e.target.value) ?? null} required/>
+                    </div>
+                </div>
+                <div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='prenom'>Prenom</label>
                         <input className='form-control' type='text' id='prenom' name='prenom' 
@@ -14,7 +23,7 @@ export function UtilisateurForm(props) {
                         onChange={ e => props.useUtilisateur.setPrenom(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='email'>Email</label>
                         <input className='form-control' type='text' id='email' name='email' 
@@ -23,16 +32,16 @@ export function UtilisateurForm(props) {
                         onChange={ e => props.useUtilisateur.setEmail(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='mot_de_passe'>Mot_de_passe</label>
+                        <label htmlFor='mot_de_passe'>Mot de passe</label>
                         <input className='form-control' type='text' id='mot_de_passe' name='mot_de_passe' 
-                        placeholder='Mot_de_passe' value={props.useUtilisateur.mot_de_passe ?? ''}
+                        placeholder='Mot de passe' value={props.useUtilisateur.mot_de_passe ?? ''}
                         disabled={props.isDisabled} 
                         onChange={ e => props.useUtilisateur.setMot_de_passe(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='civilite'>Civilite</label>
                         <input className='form-control' type='text' id='civilite' name='civilite' 
@@ -41,7 +50,7 @@ export function UtilisateurForm(props) {
                         onChange={ e => props.useUtilisateur.setCivilite(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='fonction'>Fonction</label>
                         <input className='form-control' type='text' id='fonction' name='fonction' 
@@ -50,7 +59,7 @@ export function UtilisateurForm(props) {
                         onChange={ e => props.useUtilisateur.setFonction(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='specialite'>Specialite</label>
                         <input className='form-control' type='text' id='specialite' name='specialite' 
@@ -59,7 +68,7 @@ export function UtilisateurForm(props) {
                         onChange={ e => props.useUtilisateur.setSpecialite(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='profession'>Profession</label>
                         <input className='form-control' type='text' id='profession' name='profession' 
@@ -68,7 +77,7 @@ export function UtilisateurForm(props) {
                         onChange={ e => props.useUtilisateur.setProfession(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='societe'>Societe</label>
                         <input className='form-control' type='text' id='societe' name='societe' 
@@ -77,7 +86,7 @@ export function UtilisateurForm(props) {
                         onChange={ e => props.useUtilisateur.setSociete(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='service'>Service</label>
                         <input className='form-control' type='text' id='service' name='service' 
@@ -86,7 +95,7 @@ export function UtilisateurForm(props) {
                         onChange={ e => props.useUtilisateur.setService(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='adresse'>Adresse</label>
                         <input className='form-control' type='text' id='adresse' name='adresse' 
@@ -95,16 +104,16 @@ export function UtilisateurForm(props) {
                         onChange={ e => props.useUtilisateur.setAdresse(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='code_postal'>Code_postal</label>
+                        <label htmlFor='code_postal'>Code postal</label>
                         <input className='form-control' type='text' id='code_postal' name='code_postal' 
-                        placeholder='Code_postal' value={props.useUtilisateur.code_postal ?? ''}
+                        placeholder='Code postal' value={props.useUtilisateur.code_postal ?? ''}
                         disabled={props.isDisabled} 
                         onChange={ e => props.useUtilisateur.setCode_postal(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='ville'>Ville</label>
                         <input className='form-control' type='text' id='ville' name='ville' 
@@ -113,7 +122,7 @@ export function UtilisateurForm(props) {
                         onChange={ e => props.useUtilisateur.setVille(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='pays'>Pays</label>
                         <input className='form-control' type='text' id='pays' name='pays' 
@@ -122,7 +131,7 @@ export function UtilisateurForm(props) {
                         onChange={ e => props.useUtilisateur.setPays(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='telephone'>Telephone</label>
                         <input className='form-control' type='text' id='telephone' name='telephone' 
@@ -131,7 +140,7 @@ export function UtilisateurForm(props) {
                         onChange={ e => props.useUtilisateur.setTelephone(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='fax'>Fax</label>
                         <input className='form-control' type='text' id='fax' name='fax' 
@@ -140,7 +149,7 @@ export function UtilisateurForm(props) {
                         onChange={ e => props.useUtilisateur.setFax(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='autres'>Autres</label>
                         <input className='form-control' type='text' id='autres' name='autres' 
@@ -149,29 +158,12 @@ export function UtilisateurForm(props) {
                         onChange={ e => props.useUtilisateur.setAutres(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
-                    <div className='form-group'>
-                        <label htmlFor='has_accepted_conditions'>Has_accepted_conditions</label>
-                        <input className='form-control' type='radio' id='has_accepted_conditions' name='has_accepted_conditions' 
-                        placeholder='Has_accepted_conditions' value={props.useUtilisateur.has_accepted_conditions ?? ''}
-                        disabled={props.isDisabled} 
-                        onChange={ e => props.useUtilisateur.setHas_accepted_conditions(e.target.value) ?? null} required/>
-                    </div>
+                <div className='col-12 text-right'>
+                    <button disabled={props.isDisabled ?? false} type='button' className='btn btn-primary' 
+                    onClick={props.handleFormSubmit}>
+                        <span>Enregistrer</span>
+                    </button>
                 </div>
-				<div className='col-6'>
-                    <div className='form-group'>
-                        <label htmlFor='is_r2c_member'>Is_r2c_member</label>
-                        <input className='form-control' type='radio' id='is_r2c_member' name='is_r2c_member' 
-                        placeholder='Is_r2c_member' value={props.useUtilisateur.is_r2c_member ?? ''}
-                        disabled={props.isDisabled} 
-                        onChange={ e => props.useUtilisateur.setIs_r2c_member(e.target.value) ?? null} required/>
-                    </div>
-                </div>
-				
-                <button disabled={props.isDisabled ?? false} type='button' className='btn btn-primary' 
-                onClick={props.handleFormSubmit}>
-                    <span>Enregistrer</span>
-                </button>
             </div>
         </form>
     )

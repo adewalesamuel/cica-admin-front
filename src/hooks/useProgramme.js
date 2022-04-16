@@ -13,15 +13,15 @@ export const useProgramme = () => {
     const [errors, setErrors] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
 
-    const getProgramme = (programmeId, abortController) => {        
-        return Services.ProgrammeService.getById(programmeId, abortController.signal)
-        .then(programme => {
-            fillProgramme(programme);
+    const getProgramme = (programmeId, signal) => {        
+        return Services.ProgrammeService.getById(programmeId, signal)
+        .then(response => {
+            fillProgramme(response.programme);
             setIsDisabled(false);
         });
     }
 
-    const createProgramme = abortController => {
+    const createProgramme = signal => {
         const payload = {
             titre,
 		description,
@@ -31,9 +31,9 @@ export const useProgramme = () => {
 		
         };
 
-        return Services.ProgrammeService.create(JSON.stringify(payload), abortController.signal);
+        return Services.ProgrammeService.create(JSON.stringify(payload), signal);
     }
-    const updateProgramme = (programmeId, abortController) => {
+    const updateProgramme = (programmeId, signal) => {
         const payload = {
             titre,
 		description,
@@ -43,10 +43,10 @@ export const useProgramme = () => {
 		
         };
 
-        return Services.ProgrammeService.update(programmeId, JSON.stringify(payload), abortController.signal);
+        return Services.ProgrammeService.update(programmeId, JSON.stringify(payload), signal);
     }
-    const deleteProgramme = (programmeId, abortController) => {
-        return Services.ProgrammeService.destroy(programmeId, abortController.signal);
+    const deleteProgramme = (programmeId, signal) => {
+        return Services.ProgrammeService.destroy(programmeId, signal);
     }
     const fillProgramme = (programme) => {
         setId(programme.id);

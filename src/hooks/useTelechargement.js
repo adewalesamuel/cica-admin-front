@@ -6,20 +6,21 @@ export const useTelechargement = () => {
 	const [nom, setNom] = useState('');
 	const [description, setDescription] = useState('');
 	const [url_fichier, setUrl_fichier] = useState('');
+	const [fichier, setFichier] = useState('');
 	
 
     const [errors, setErrors] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
 
-    const getTelechargement = (telechargementId, abortController) => {        
-        return Services.TelechargementService.getById(telechargementId, abortController.signal)
-        .then(telechargement => {
-            fillTelechargement(telechargement);
+    const getTelechargement = (telechargementId, signal) => {        
+        return Services.TelechargementService.getById(telechargementId, signal)
+        .then(response => {
+            fillTelechargement(response.telechargement);
             setIsDisabled(false);
         });
     }
 
-    const createTelechargement = abortController => {
+    const createTelechargement = signal => {
         const payload = {
             nom,
 		description,
@@ -27,9 +28,9 @@ export const useTelechargement = () => {
 		
         };
 
-        return Services.TelechargementService.create(JSON.stringify(payload), abortController.signal);
+        return Services.TelechargementService.create(JSON.stringify(payload), signal);
     }
-    const updateTelechargement = (telechargementId, abortController) => {
+    const updateTelechargement = (telechargementId, signal) => {
         const payload = {
             nom,
 		description,
@@ -37,10 +38,10 @@ export const useTelechargement = () => {
 		
         };
 
-        return Services.TelechargementService.update(telechargementId, JSON.stringify(payload), abortController.signal);
+        return Services.TelechargementService.update(telechargementId, JSON.stringify(payload), signal);
     }
-    const deleteTelechargement = (telechargementId, abortController) => {
-        return Services.TelechargementService.destroy(telechargementId, abortController.signal);
+    const deleteTelechargement = (telechargementId, signal) => {
+        return Services.TelechargementService.destroy(telechargementId, signal);
     }
     const fillTelechargement = (telechargement) => {
         setId(telechargement.id);
@@ -62,12 +63,14 @@ export const useTelechargement = () => {
         nom,
 		description,
 		url_fichier,
+        fichier,
 		
         errors,
         isDisabled,
         setNom,
 		setDescription,
 		setUrl_fichier,
+		setFichier,
 		
         setId,
         setErrors,

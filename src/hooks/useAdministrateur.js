@@ -11,15 +11,15 @@ export const useAdministrateur = () => {
     const [errors, setErrors] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
 
-    const getAdministrateur = (administrateurId, abortController) => {        
-        return Services.AdministrateurService.getById(administrateurId, abortController.signal)
-        .then(administrateur => {
-            fillAdministrateur(administrateur);
+    const getAdministrateur = (administrateurId, signal) => {        
+        return Services.AdministrateurService.getById(administrateurId, signal)
+        .then(response => {
+            fillAdministrateur(response.administrateur);
             setIsDisabled(false);
         });
     }
 
-    const createAdministrateur = abortController => {
+    const createAdministrateur = signal => {
         const payload = {
             nom_prenom,
 		email,
@@ -27,9 +27,9 @@ export const useAdministrateur = () => {
 		
         };
 
-        return Services.AdministrateurService.create(JSON.stringify(payload), abortController.signal);
+        return Services.AdministrateurService.create(JSON.stringify(payload), signal);
     }
-    const updateAdministrateur = (administrateurId, abortController) => {
+    const updateAdministrateur = (administrateurId, signal) => {
         const payload = {
             nom_prenom,
 		email,
@@ -37,10 +37,10 @@ export const useAdministrateur = () => {
 		
         };
 
-        return Services.AdministrateurService.update(administrateurId, JSON.stringify(payload), abortController.signal);
+        return Services.AdministrateurService.update(administrateurId, JSON.stringify(payload), signal);
     }
-    const deleteAdministrateur = (administrateurId, abortController) => {
-        return Services.AdministrateurService.destroy(administrateurId, abortController.signal);
+    const deleteAdministrateur = (administrateurId, signal) => {
+        return Services.AdministrateurService.destroy(administrateurId, signal);
     }
     const fillAdministrateur = (administrateur) => {
         setId(administrateur.id);

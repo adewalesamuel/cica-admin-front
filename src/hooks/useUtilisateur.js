@@ -3,6 +3,7 @@ import { Services } from '../services';
 
 export const useUtilisateur = () => {
     const [id, setId] = useState('');
+	const [nom, setNom] = useState('');
 	const [prenom, setPrenom] = useState('');
 	const [email, setEmail] = useState('');
 	const [mot_de_passe, setMot_de_passe] = useState('');
@@ -19,24 +20,25 @@ export const useUtilisateur = () => {
 	const [telephone, setTelephone] = useState('');
 	const [fax, setFax] = useState('');
 	const [autres, setAutres] = useState('');
-	const [has_accepted_conditions, setHas_accepted_conditions] = useState('');
+	const [has_accepted_conditions, setHas_accepted_conditions] = useState(true);
 	const [is_r2c_member, setIs_r2c_member] = useState('');
 	
 
     const [errors, setErrors] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
 
-    const getUtilisateur = (utilisateurId, abortController) => {        
-        return Services.UtilisateurService.getById(utilisateurId, abortController.signal)
-        .then(utilisateur => {
-            fillUtilisateur(utilisateur);
+    const getUtilisateur = (utilisateurId, signal) => {        
+        return Services.UtilisateurService.getById(utilisateurId, signal)
+        .then(response => {
+            fillUtilisateur(response.utilisateur);
             setIsDisabled(false);
         });
     }
 
-    const createUtilisateur = abortController => {
+    const createUtilisateur = signal => {
         const payload = {
-            prenom,
+		nom,
+        prenom,
 		email,
 		mot_de_passe,
 		civilite,
@@ -57,11 +59,12 @@ export const useUtilisateur = () => {
 		
         };
 
-        return Services.UtilisateurService.create(JSON.stringify(payload), abortController.signal);
+        return Services.UtilisateurService.create(JSON.stringify(payload), signal);
     }
-    const updateUtilisateur = (utilisateurId, abortController) => {
+    const updateUtilisateur = (utilisateurId, signal) => {
         const payload = {
-            prenom,
+		nom,
+        prenom,
 		email,
 		mot_de_passe,
 		civilite,
@@ -82,13 +85,14 @@ export const useUtilisateur = () => {
 		
         };
 
-        return Services.UtilisateurService.update(utilisateurId, JSON.stringify(payload), abortController.signal);
+        return Services.UtilisateurService.update(utilisateurId, JSON.stringify(payload), signal);
     }
-    const deleteUtilisateur = (utilisateurId, abortController) => {
-        return Services.UtilisateurService.destroy(utilisateurId, abortController.signal);
+    const deleteUtilisateur = (utilisateurId, signal) => {
+        return Services.UtilisateurService.destroy(utilisateurId, signal);
     }
     const fillUtilisateur = (utilisateur) => {
         setId(utilisateur.id);
+		setNom(utilisateur.nom);
         setPrenom(utilisateur.prenom ?? '');
 		setEmail(utilisateur.email ?? '');
 		setMot_de_passe(utilisateur.mot_de_passe ?? '');
@@ -111,6 +115,7 @@ export const useUtilisateur = () => {
     }
     const emptyUtilisateur = () => {
         setId('');
+        setNom('');
         setPrenom('');
 		setEmail('');
 		setMot_de_passe('');
@@ -134,6 +139,7 @@ export const useUtilisateur = () => {
 
     return {
         id,
+		nom,
         prenom,
 		email,
 		mot_de_passe,
@@ -155,6 +161,7 @@ export const useUtilisateur = () => {
 		
         errors,
         isDisabled,
+        setNom,
         setPrenom,
 		setEmail,
 		setMot_de_passe,

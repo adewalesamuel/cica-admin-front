@@ -11,42 +11,42 @@ export const usePack = () => {
     const [errors, setErrors] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
 
-    const getPack = (packId, abortController) => {        
-        return Services.PackService.getById(packId, abortController.signal)
-        .then(pack => {
-            fillPack(pack);
+    const getPack = (packId, signal) => {        
+        return Services.PackService.getById(packId, signal)
+        .then(response => {
+            fillPack(response.pack);
             setIsDisabled(false);
         });
     }
 
-    const createPack = abortController => {
+    const createPack = signal => {
         const payload = {
             qualification,
 		prix,
-		regle_prix,
+		regle_prix: JSON.stringify(regle_prix),
 		
         };
 
-        return Services.PackService.create(JSON.stringify(payload), abortController.signal);
+        return Services.PackService.create(JSON.stringify(payload), signal);
     }
-    const updatePack = (packId, abortController) => {
+    const updatePack = (packId, signal) => {
         const payload = {
             qualification,
 		prix,
-		regle_prix,
+		regle_prix: JSON.stringify(regle_prix),
 		
         };
 
-        return Services.PackService.update(packId, JSON.stringify(payload), abortController.signal);
+        return Services.PackService.update(packId, JSON.stringify(payload), signal);
     }
-    const deletePack = (packId, abortController) => {
-        return Services.PackService.destroy(packId, abortController.signal);
+    const deletePack = (packId, signal) => {
+        return Services.PackService.destroy(packId, signal);
     }
     const fillPack = (pack) => {
         setId(pack.id);
         setQualification(pack.qualification ?? '');
 		setPrix(pack.prix ?? '');
-		setRegle_prix(pack.regle_prix ?? '');
+        setRegle_prix(pack.regle_prix ? JSON.parse(pack.regle_prix): '');
 		
     }
     const emptyPack = () => {

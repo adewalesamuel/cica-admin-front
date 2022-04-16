@@ -5,7 +5,7 @@ export function ProgrammeForm(props) {
         <form className='form' disabled={props.isDisabled ?? false}
         onSubmit={props.handleFormSubmit ?? null}>
             <div className='row'>
-                <div className='col-6'>
+                <div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='titre'>Titre</label>
                         <input className='form-control' type='text' id='titre' name='titre' 
@@ -14,16 +14,18 @@ export function ProgrammeForm(props) {
                         onChange={ e => props.useProgramme.setTitre(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='description'>Description</label>
-                        <input className='form-control' type='text' id='description' name='description' 
+                        <textarea className='form-control' type='text' id='description' name='description' 
                         placeholder='Description' value={props.useProgramme.description ?? ''}
                         disabled={props.isDisabled} 
-                        onChange={ e => props.useProgramme.setDescription(e.target.value) ?? null} required/>
+                        onChange={ e => props.useProgramme.setDescription(e.target.value) ?? null} required>
+
+                        </textarea>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='date'>Date</label>
                         <input className='form-control' type='date' id='date' name='date' 
@@ -32,7 +34,7 @@ export function ProgrammeForm(props) {
                         onChange={ e => props.useProgramme.setDate(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='heure'>Heure</label>
                         <input className='form-control' type='time' id='heure' name='heure' 
@@ -41,25 +43,28 @@ export function ProgrammeForm(props) {
                         onChange={ e => props.useProgramme.setHeure(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='categorie_id'>Categorie_id</label>
                         <select className='select2 form-control' id='categorie_id' name='categorie_id' value={props.useProgramme.categorie_id ?? ''}
                         disabled={props.isDisabled} 
                         onChange={ e => props.useProgramme.setCategorie_id(e.target.value) ?? null} required>
-                            {/* {
-                                props.items.map(item => {
-                                    return <option key={Math.random()} value={item.id ?? ''}>{item.name}</option>
+                            <option hidden>Choisissez une categorie</option>
+                            {
+                                props.categories.map(categorie => {
+                                    return <option key={Math.random()} value={categorie.id ?? ''}>{categorie.nom}</option>
                                 })
-                            }  */}
+                            } 
                         </select>
                     </div>
                 </div>
 				
-                <button disabled={props.isDisabled ?? false} type='button' className='btn btn-primary' 
-                onClick={props.handleFormSubmit}>
-                    <span>Enregistrer</span>
-                </button>
+                <div className='col-12 text-right'>
+                    <button disabled={props.isDisabled ?? false} type='button' className='btn btn-primary' 
+                    onClick={props.handleFormSubmit}>
+                        <span>Enregistrer</span>
+                    </button>
+                </div>
             </div>
         </form>
     )

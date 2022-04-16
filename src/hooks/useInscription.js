@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Services } from '../services';
 
 export const useInscription = () => {
+    const statuses = ['paye', 'en-attente', 'annule'];
+
     const [id, setId] = useState('');
 	const [pack_id, setPack_id] = useState('');
 	const [programme_id, setProgramme_id] = useState('');
@@ -14,15 +16,15 @@ export const useInscription = () => {
     const [errors, setErrors] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
 
-    const getInscription = (inscriptionId, abortController) => {        
-        return Services.InscriptionService.getById(inscriptionId, abortController.signal)
-        .then(inscription => {
-            fillInscription(inscription);
+    const getInscription = (inscriptionId, signal) => {        
+        return Services.InscriptionService.getById(inscriptionId, signal)
+        .then(response => {
+            fillInscription(response.inscription);
             setIsDisabled(false);
         });
     }
 
-    const createInscription = abortController => {
+    const createInscription = signal => {
         const payload = {
             pack_id,
 		programme_id,
@@ -33,9 +35,9 @@ export const useInscription = () => {
 		
         };
 
-        return Services.InscriptionService.create(JSON.stringify(payload), abortController.signal);
+        return Services.InscriptionService.create(JSON.stringify(payload), signal);
     }
-    const updateInscription = (inscriptionId, abortController) => {
+    const updateInscription = (inscriptionId, signal) => {
         const payload = {
             pack_id,
 		programme_id,
@@ -46,10 +48,10 @@ export const useInscription = () => {
 		
         };
 
-        return Services.InscriptionService.update(inscriptionId, JSON.stringify(payload), abortController.signal);
+        return Services.InscriptionService.update(inscriptionId, JSON.stringify(payload), signal);
     }
-    const deleteInscription = (inscriptionId, abortController) => {
-        return Services.InscriptionService.destroy(inscriptionId, abortController.signal);
+    const deleteInscription = (inscriptionId, signal) => {
+        return Services.InscriptionService.destroy(inscriptionId, signal);
     }
     const fillInscription = (inscription) => {
         setId(inscription.id);
@@ -80,6 +82,7 @@ export const useInscription = () => {
 		prix,
 		mode_paiement,
 		status_paiement,
+        statuses,
 		
         errors,
         isDisabled,

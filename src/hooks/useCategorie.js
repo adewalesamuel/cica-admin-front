@@ -10,34 +10,34 @@ export const useCategorie = () => {
     const [errors, setErrors] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
 
-    const getCategorie = (categorieId, abortController) => {        
-        return Services.CategorieService.getById(categorieId, abortController.signal)
-        .then(categorie => {
-            fillCategorie(categorie);
+    const getCategorie = (categorieId, signal) => {        
+        return Services.CategorieService.getById(categorieId, signal)
+        .then(response => {
+            fillCategorie(response.categorie);
             setIsDisabled(false);
         });
     }
 
-    const createCategorie = abortController => {
+    const createCategorie = signal => {
         const payload = {
             nom,
 		couleur,
 		
         };
 
-        return Services.CategorieService.create(JSON.stringify(payload), abortController.signal);
+        return Services.CategorieService.create(JSON.stringify(payload), signal);
     }
-    const updateCategorie = (categorieId, abortController) => {
+    const updateCategorie = (categorieId, signal) => {
         const payload = {
             nom,
 		couleur,
 		
         };
 
-        return Services.CategorieService.update(categorieId, JSON.stringify(payload), abortController.signal);
+        return Services.CategorieService.update(categorieId, JSON.stringify(payload), signal);
     }
-    const deleteCategorie = (categorieId, abortController) => {
-        return Services.CategorieService.destroy(categorieId, abortController.signal);
+    const deleteCategorie = (categorieId, signal) => {
+        return Services.CategorieService.destroy(categorieId, signal);
     }
     const fillCategorie = (categorie) => {
         setId(categorie.id);

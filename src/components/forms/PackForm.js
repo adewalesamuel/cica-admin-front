@@ -5,7 +5,7 @@ export function PackForm(props) {
         <form className='form' disabled={props.isDisabled ?? false}
         onSubmit={props.handleFormSubmit ?? null}>
             <div className='row'>
-                <div className='col-6'>
+                <div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='qualification'>Qualification</label>
                         <input className='form-control' type='text' id='qualification' name='qualification' 
@@ -14,7 +14,7 @@ export function PackForm(props) {
                         onChange={ e => props.usePack.setQualification(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='prix'>Prix</label>
                         <input className='form-control' type='number' id='prix' name='prix' 
@@ -23,7 +23,7 @@ export function PackForm(props) {
                         onChange={ e => props.usePack.setPrix(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-6'>
+				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='regle_prix'>Regle_prix</label>
                         <input className='form-control' type='text' id='regle_prix' name='regle_prix' 
@@ -33,10 +33,12 @@ export function PackForm(props) {
                     </div>
                 </div>
 				
-                <button disabled={props.isDisabled ?? false} type='button' className='btn btn-primary' 
-                onClick={props.handleFormSubmit}>
-                    <span>Enregistrer</span>
-                </button>
+                <div className='col-12 text-right'>
+                    <button disabled={props.isDisabled ?? false} type='button' className='btn btn-primary' 
+                    onClick={props.handleFormSubmit}>
+                        <span>Enregistrer</span>
+                    </button>
+                </div>
             </div>
         </form>
     )
