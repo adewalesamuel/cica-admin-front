@@ -50,7 +50,7 @@ export function InscriptionListView(props) {
                 inscriptionCopyItem['pack'] = inscription.pack.qualification;
                 inscriptionCopyItem['programme'] = inscription.programme.titre;
                 inscriptionCopyItem['prix'] = inscription.prix;
-                inscriptionCopyItem['mode_paiment'] = inscription.mode_paiment;
+                inscriptionCopyItem['mode_paiement'] = inscription.mode_paiement;
                 inscriptionCopyItem['status_paiement'] = inscription.status_paiement;
                 inscriptionCopyItem['date'] = new Date(inscription.created_at).toLocaleDateString();
 

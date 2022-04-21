@@ -5,7 +5,6 @@ const getSessionToken = () => {
 const isLoggedIn = () => {
     if (getSessionToken() === '' || !getSessionToken())
         return false;
-
     return true;
 }
 

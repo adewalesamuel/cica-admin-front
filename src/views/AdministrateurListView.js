@@ -42,12 +42,11 @@ export function AdministrateurListView(props) {
         Services.AdministrateurService.getAll(abortController.signal)
         .then(response => {
             setAdministrateurs(response.administrateurs);
-        })
-    
+        });
       return () => {
         // abortController.abort();
       }
-    }, [])
+    }, []);
     
     return (
         <>

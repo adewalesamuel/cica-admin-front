@@ -34,7 +34,7 @@ const get = (endpoint, signal=new AbortController().signal) => {
         .then(result => {
             resolve(result)
         })
-        .catch(error => reject(error))
+        .catch(error => {reject(error)})
     })
 }
 

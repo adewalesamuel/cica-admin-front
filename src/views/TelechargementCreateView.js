@@ -24,7 +24,7 @@ export function TelechargementCreateView(props) {
     }
 
     useEffect(() => {
-    
+      console.log(useTelechargement.fichier);
       return () => {
         // abortController.abort();
       }

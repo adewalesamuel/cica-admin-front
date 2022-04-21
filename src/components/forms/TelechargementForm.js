@@ -27,9 +27,9 @@ export function TelechargementForm(props) {
                     <div className='form-group'>
                         <label htmlFor='fichier'>Document</label>
                         <input className='form-control' type='file' id='fichier' name='fichier' 
-                        placeholder='Fichier' value={props.useTelechargement.fichier ?? ''}
+                        placeholder='Fichier' 
                         disabled={props.isDisabled} 
-                        onChange={ e => props.useTelechargement.setFichier(e.target.value) ?? null} required/>
+                        onChange={ e => props.useTelechargement.setFichier(e.target.files[0]) }  required/>
                     </div>
                 </div>
 				

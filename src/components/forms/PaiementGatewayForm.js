@@ -16,11 +16,20 @@ export function PaiementGatewayForm(props) {
                 </div>
 				<div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='infos_connexion'>Infos_connexion</label>
-                        <input className='form-control' type='text' id='infos_connexion' name='infos_connexion' 
-                        placeholder='Infos_connexion' value={props.usePaiementGateway.infos_connexion ?? ''}
+                        <label htmlFor='identifiant'>identifiant</label>
+                        <input className='form-control' type='text' id='identifiant' name='identifiant' 
+                        placeholder='Idenntifiant' value={props.usePaiementGateway.identifiant ?? ''}
                         disabled={props.isDisabled} 
-                        onChange={ e => props.usePaiementGateway.setInfos_connexion(e.target.value) ?? null} required/>
+                        onChange={ e => props.usePaiementGateway.setIdentifiant(e.target.value) ?? null} required/>
+                    </div>
+                </div>
+				<div className='col-12'>
+                    <div className='form-group'>
+                        <label htmlFor='password'>Mot de passe</label>
+                        <input className='form-control' type='text' id='password' name='password' 
+                        placeholder='Mot de passe' value={props.usePaiementGateway.password ?? ''}
+                        disabled={props.isDisabled} 
+                        onChange={ e => props.usePaiementGateway.setPassword(e.target.value) ?? null} required/>
                     </div>
                 </div>
 				

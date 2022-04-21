@@ -11,6 +11,7 @@ import { TelechargementForm } from './forms/TelechargementForm';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { MainLayout } from './layouts/MainLayout';
+import { AuthLayout } from './layouts/AuthLayout';
 import { MainMenu } from './MainMenu';
 import { Table } from './Table';
 
@@ -27,6 +28,7 @@ export const Components = {
 	Header,
 	Footer,
 	MainLayout,
+	AuthLayout,
 	MainMenu,
 	Table
 }

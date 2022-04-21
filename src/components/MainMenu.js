@@ -62,6 +62,12 @@ export function MainMenu(props) {
                                 <span>Inscriptions</span>
                             </NavLink>
                         </li>
+                        <li>
+                            <NavLink to="/paiement_gateways" className="waves-effect">
+                                <i className="mdi mdi-calendar-month"></i>
+                                <span>Moyen de paiement</span>
+                            </NavLink>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -23,8 +23,13 @@ import { TelechargementEditView } from "./TelechargementEditView";
 import { InscriptionListView } from './InscriptionListView';
 import { InscriptionCreateView } from "./InscriptionCreateView";
 import { InscriptionEditView } from "./InscriptionEditView";
+import { LoginView } from "./LoginView";
+import { PaiementGatewayListView } from "./PaiementGatewayListView";
+import { PaiementGatewayCreateView } from "./PaiementGatewayCreateView";
+import { PaiementGatewayEditView } from "./PaiementGatewayEditView";
 
 export const Views = {
+    LoginView,
     DashboardView,
     AdministrateurListView,
     AdministrateurCreateView,
@@ -50,4 +55,7 @@ export const Views = {
     InscriptionListView,
     InscriptionCreateView,
     InscriptionEditView,
+    PaiementGatewayListView,
+    PaiementGatewayCreateView,
+    PaiementGatewayEditView
 }

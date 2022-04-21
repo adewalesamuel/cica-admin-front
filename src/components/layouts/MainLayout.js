@@ -1,8 +1,21 @@
+import {Route, Routes, useNavigate} from 'react-router-dom'
+import { useEffect } from "react";
+
 import { Components } from "..";
-import {Route, Routes} from 'react-router-dom'
 import { Views } from "../../views";
+import { Utils } from "../../utils";
 
 export function MainLayout(props) {
+    window.document.body.className = "";
+    const navigate = useNavigate();
+    const isLoggedIn = Utils.Auth.isLoggedIn();
+
+    useEffect(() => {
+        if (!isLoggedIn) navigate('/auth');
+    });
+
+    if (!isLoggedIn) return null;
+
     return (
         <>
             <Components.Header />
@@ -13,6 +26,9 @@ export function MainLayout(props) {
                         <div className="container-fluid">
                             <Routes>
                                 <Route exact path="" element={<Views.DashboardView />} />
+                                <Route exact path="paiement_gateways/:id/modifier" element={<Views.PaiementGatewayEditView />} />
+                                <Route exact path="paiement_gateways/creer" element={<Views.PaiementGatewayCreateView />} />
+                                <Route exact path="paiement_gateways" element={<Views.PaiementGatewayListView />} />
                                 <Route exact path="inscriptions/:id/modifier" element={<Views.InscriptionEditView />} />
                                 <Route exact path="inscriptions/creer" element={<Views.InscriptionCreateView />} />
                                 <Route exact path="inscriptions" element={<Views.InscriptionListView />} />

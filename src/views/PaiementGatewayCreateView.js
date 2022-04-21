@@ -1,14 +1,13 @@
 import { useEffect, useState, } from "react";
 import { Components } from "../components";
 import {Hooks} from '../hooks';
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
-export function PackEditView(props) {
+export function PaiementGatewayCreateView(props) {
   const abortController = new AbortController();
-  const usePack = Hooks.usePack();
+  const usePaiementGateway = Hooks.usePaiementGateway();
   const navigate = useNavigate();
-  const categorieId = useParams().id;
   
   const [isDisabled, setIsDisabled] = useState(false);
   
@@ -16,19 +15,15 @@ export function PackEditView(props) {
     event.preventDefault();
     
       setIsDisabled(true);
-      usePack.updatePack(categorieId, abortController.signal)
+      usePaiementGateway.createPaiementGateway(abortController.signal)
       .then(() => {
         setIsDisabled(false);
-        navigate('/packs')
-      });
+        navigate('/paiement_gateways')
+      })
+      .catch(err => setIsDisabled(false));
     }
 
     useEffect(() => {
-      setIsDisabled(true);
-
-      usePack.getPack(categorieId, abortController.signal)
-      .then(() => setIsDisabled(false))
-      .catch(err => {setIsDisabled(false); console.log(err)});
     
       return () => {
         // abortController.abort();
@@ -37,12 +32,12 @@ export function PackEditView(props) {
     
     return (
         <>
-            <h2>Modifier un pack</h2>
+            <h2>Creer un administrateur</h2>
             <div className="row">
               <div className="col-12 col-lg-6">
                 <div className="card">
                     <div className="card-body">
-                        <Components.PackForm usePack={usePack}
+                        <Components.PaiementGatewayForm usePaiementGateway={usePaiementGateway}
                         isDisabled={isDisabled} handleFormSubmit={handleFormSubmit}/>
                     </div>
                 </div>
