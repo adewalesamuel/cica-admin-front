@@ -25,11 +25,11 @@ export function AdministrateurForm(props) {
                 </div>
 				<div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='mot_de_passe'>Mot de passe</label>
-                        <input className='form-control' type='text' id='mot_de_passe' name='mot_de_passe' 
-                        placeholder='Mot de passe' value={props.useAdministrateur.mot_de_passe ?? ''}
+                        <label htmlFor='pasword'>Mot de passe</label>
+                        <input className='form-control' type='text' id='pasword' name='pasword' 
+                        placeholder='Mot de passe' value={props.useAdministrateur.pasword ?? ''}
                         disabled={props.isDisabled} 
-                        onChange={ e => props.useAdministrateur.setMot_de_passe(e.target.value) ?? null} required/>
+                        onChange={ e => props.useAdministrateur.setPasword(e.target.value) ?? null} required/>
                     </div>
                 </div>
 				

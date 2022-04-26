@@ -5,7 +5,7 @@ export const useAdministrateur = () => {
     const [id, setId] = useState('');
 	const [nom_prenom, setNom_prenom] = useState('');
 	const [email, setEmail] = useState('');
-	const [mot_de_passe, setMot_de_passe] = useState('');
+	const [password, setPassword] = useState('');
 	
 
     const [errors, setErrors] = useState([]);
@@ -23,7 +23,7 @@ export const useAdministrateur = () => {
         const payload = {
             nom_prenom,
 		email,
-		mot_de_passe,
+		password,
 		
         };
 
@@ -33,7 +33,7 @@ export const useAdministrateur = () => {
         const payload = {
             nom_prenom,
 		email,
-		mot_de_passe,
+		password,
 		
         };
 
@@ -46,14 +46,14 @@ export const useAdministrateur = () => {
         setId(administrateur.id);
         setNom_prenom(administrateur.nom_prenom ?? '');
 		setEmail(administrateur.email ?? '');
-		setMot_de_passe(administrateur.mot_de_passe ?? '');
+		setPassword(administrateur.password ?? '');
 		
     }
     const emptyAdministrateur = () => {
         setId('');
         setNom_prenom('');
 		setEmail('');
-		setMot_de_passe('');
+		setPassword('');
 		
     }
 
@@ -61,13 +61,13 @@ export const useAdministrateur = () => {
         id,
         nom_prenom,
 		email,
-		mot_de_passe,
+		password,
 		
         errors,
         isDisabled,
         setNom_prenom,
 		setEmail,
-		setMot_de_passe,
+		setPassword,
 		
         setId,
         setErrors,

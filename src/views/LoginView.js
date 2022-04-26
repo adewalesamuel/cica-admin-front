@@ -16,7 +16,7 @@ export function LoginView(props) {
 
       const payload = {
           email : useAdministrateur.email,
-          mot_de_passe: useAdministrateur.mot_de_passe
+          password: useAdministrateur.password
       };
 
       Services.AuthService.login(JSON.stringify(payload), abortController.signal)
@@ -58,7 +58,7 @@ export function LoginView(props) {
                                             </div>
                                             <div className="form-group mb-4">
                                                 <label htmlFor="mot_de_passe">Mot de passe</label>
-                                                <input type="password" className="form-control" id="mot_de_passe" placeholder="Votre Mot de passe" onChange={e => useAdministrateur.setMot_de_passe(e.target.value)} disabled={isDisabled}/>
+                                                <input type="password" className="form-control" id="mot_de_passe" placeholder="Votre Mot de passe" onChange={e => useAdministrateur.setPassword(e.target.value)} disabled={isDisabled}/>
                                             </div>
 
                                             <div className="row">
