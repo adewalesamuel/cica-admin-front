@@ -6,7 +6,7 @@ export const useUtilisateur = () => {
 	const [nom, setNom] = useState('');
 	const [prenom, setPrenom] = useState('');
 	const [email, setEmail] = useState('');
-	const [mot_de_passe, setMot_de_passe] = useState('');
+	const [password, setPassword] = useState('');
 	const [civilite, setCivilite] = useState('');
 	const [fonction, setFonction] = useState('');
 	const [specialite, setSpecialite] = useState('');
@@ -40,7 +40,7 @@ export const useUtilisateur = () => {
 		nom,
         prenom,
 		email,
-		mot_de_passe,
+		password,
 		civilite,
 		fonction,
 		specialite,
@@ -66,7 +66,7 @@ export const useUtilisateur = () => {
 		nom,
         prenom,
 		email,
-		mot_de_passe,
+		password,
 		civilite,
 		fonction,
 		specialite,
@@ -95,7 +95,7 @@ export const useUtilisateur = () => {
 		setNom(utilisateur.nom);
         setPrenom(utilisateur.prenom ?? '');
 		setEmail(utilisateur.email ?? '');
-		setMot_de_passe(utilisateur.mot_de_passe ?? '');
+		setPassword(utilisateur.password ?? '');
 		setCivilite(utilisateur.civilite ?? '');
 		setFonction(utilisateur.fonction ?? '');
 		setSpecialite(utilisateur.specialite ?? '');
@@ -118,7 +118,7 @@ export const useUtilisateur = () => {
         setNom('');
         setPrenom('');
 		setEmail('');
-		setMot_de_passe('');
+		setPassword('');
 		setCivilite('');
 		setFonction('');
 		setSpecialite('');
@@ -142,7 +142,7 @@ export const useUtilisateur = () => {
 		nom,
         prenom,
 		email,
-		mot_de_passe,
+		password,
 		civilite,
 		fonction,
 		specialite,
@@ -164,7 +164,7 @@ export const useUtilisateur = () => {
         setNom,
         setPrenom,
 		setEmail,
-		setMot_de_passe,
+		setPassword,
 		setCivilite,
 		setFonction,
 		setSpecialite,
