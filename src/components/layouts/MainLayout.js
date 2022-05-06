@@ -12,7 +12,7 @@ export function MainLayout(props) {
 
     useEffect(() => {
         if (!isLoggedIn) navigate('/auth');
-    });
+    }, []);
 
     if (!isLoggedIn) return null;
 
