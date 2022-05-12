@@ -14,7 +14,7 @@ export function InscriptionListView(props) {
 
     const [inscriptions, setInscriptions] = useState([]);
     
-    const tableHead = ['id', 'utilisateur', 'pack', 'programme', 'prix', 'mode_paiement', 'status_paiement', 'date'];
+    const tableHead = ['id', 'utilisateur', 'pack', 'prix', 'mode_paiement', 'status_paiement', 'date'];
     const tableActions = ['edit', 'delete'];
 
     const findInscriptionIndex = data => {
@@ -48,7 +48,6 @@ export function InscriptionListView(props) {
                 inscriptionCopyItem['id'] = inscription.id;
                 inscriptionCopyItem['utilisateur'] = `${inscription.utilisateur.nom} ${inscription.utilisateur.prenom}`;
                 inscriptionCopyItem['pack'] = inscription.pack.qualification;
-                inscriptionCopyItem['programme'] = inscription.programme.titre;
                 inscriptionCopyItem['prix'] = inscription.prix;
                 inscriptionCopyItem['mode_paiement'] = inscription.mode_paiement;
                 inscriptionCopyItem['status_paiement'] = inscription.status_paiement;

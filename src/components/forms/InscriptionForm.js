@@ -22,14 +22,17 @@ export function InscriptionForm(props) {
                 </div>
 				<div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='programme_id'>Programme</label>
-                        <select className='select2 form-control' id='programme_id' name='programme_id' value={props.useInscription.programme_id ?? ''}
-                        disabled={props.isDisabled} 
-                        onChange={ e => props.useInscription.setProgramme_id(e.target.value) ?? null} required>
+                        <label htmlFor='programme_ids'>Programme</label>
+                        <select className='select2 form-control' id='programme_ids' name='programme_ids' 
+                        value={props.useInscription.programme_ids ? 
+                            JSON.parse(props.useInscription.programme_ids): []} disabled={props.isDisabled} multiple 
+                        onChange={ e => props.useInscription.setProgrammeMultiple(e.target.value) ?? null} required>
                             <option hidden>Choisissez un programme</option>
                             {
                                 props.programmes.map(programme => {
-                                    return <option key={Math.random()} value={programme.id ?? ''}>{programme.titre}</option>
+                                    return <option key={Math.random()} value={programme.id ?? ''} >
+                                        {programme.titre}
+                                        </option>
                                 })
                             } 
                         </select>

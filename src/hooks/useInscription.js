@@ -6,15 +6,26 @@ export const useInscription = () => {
 
     const [id, setId] = useState('');
 	const [pack_id, setPack_id] = useState('');
-	const [programme_id, setProgramme_id] = useState('');
+	const [programme_ids, setProgramme_ids] = useState('');
 	const [utilisateur_id, setUtilisateur_id] = useState('');
 	const [prix, setPrix] = useState('');
 	const [mode_paiement, setMode_paiement] = useState('');
 	const [status_paiement, setStatus_paiement] = useState('');
 	
-
     const [errors, setErrors] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
+
+    const setProgrammeMultiple = value => {
+        const programme_IdsArray = programme_ids ? JSON.parse(programme_ids) : [];
+
+        if (programme_IdsArray.includes(value)) {
+            programme_IdsArray.splice(programme_IdsArray.indexOf(value), 1);
+        } else {
+            programme_IdsArray.push(value);
+        }
+
+        setProgramme_ids(JSON.stringify(programme_IdsArray));
+    }
 
     const getInscription = (inscriptionId, signal) => {        
         return Services.InscriptionService.getById(inscriptionId, signal)
@@ -27,7 +38,7 @@ export const useInscription = () => {
     const createInscription = signal => {
         const payload = {
             pack_id,
-		programme_id,
+		programme_ids,
 		utilisateur_id,
 		prix,
 		mode_paiement,
@@ -40,7 +51,7 @@ export const useInscription = () => {
     const updateInscription = (inscriptionId, signal) => {
         const payload = {
             pack_id,
-		programme_id,
+		programme_ids,
 		utilisateur_id,
 		prix,
 		mode_paiement,
@@ -56,7 +67,7 @@ export const useInscription = () => {
     const fillInscription = (inscription) => {
         setId(inscription.id);
         setPack_id(inscription.pack_id ?? '');
-		setProgramme_id(inscription.programme_id ?? '');
+		setProgramme_ids(inscription.programme_ids ?? '');
 		setUtilisateur_id(inscription.utilisateur_id ?? '');
 		setPrix(inscription.prix ?? '');
 		setMode_paiement(inscription.mode_paiement ?? '');
@@ -66,7 +77,7 @@ export const useInscription = () => {
     const emptyInscription = () => {
         setId('');
         setPack_id('');
-		setProgramme_id('');
+		setProgramme_ids('');
 		setUtilisateur_id('');
 		setPrix('');
 		setMode_paiement('');
@@ -77,7 +88,7 @@ export const useInscription = () => {
     return {
         id,
         pack_id,
-		programme_id,
+		programme_ids,
 		utilisateur_id,
 		prix,
 		mode_paiement,
@@ -87,11 +98,12 @@ export const useInscription = () => {
         errors,
         isDisabled,
         setPack_id,
-		setProgramme_id,
+		setProgramme_ids,
 		setUtilisateur_id,
 		setPrix,
 		setMode_paiement,
 		setStatus_paiement,
+        setProgrammeMultiple,
 		
         setId,
         setErrors,
