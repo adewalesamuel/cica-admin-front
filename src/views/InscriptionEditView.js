@@ -14,6 +14,7 @@ export function InscriptionEditView(props) {
   const [utilisateurs, setUtilisateurs] = useState([]);
   const [packs, setPacks] = useState([]);
   const [programmes, setProgrammes] = useState([]);
+  const [moyens_paiement, setMoyens_paiement] = useState([])
   
   const [isDisabled, setIsDisabled] = useState(false);
   
@@ -41,6 +42,8 @@ export function InscriptionEditView(props) {
         .then(response => setPacks(response.packs));
         Services.ProgrammeService.getAll(abortController.signal)
         .then(response => setProgrammes(response.programmes));
+        Services.PaiementGatewayService.getAll(abortController.signal)
+        .then(response => setMoyens_paiement(response.paiement_gateways));
       })
       .catch(err => {setIsDisabled(false); console.log(err);});
     
@@ -58,7 +61,8 @@ export function InscriptionEditView(props) {
                     <div className="card-body">
                         <Components.InscriptionForm useInscription={useInscription}
                         isDisabled={isDisabled} handleFormSubmit={handleFormSubmit}
-                        utilisateurs={utilisateurs} packs={packs} programmes={programmes}/>
+                        utilisateurs={utilisateurs} packs={packs} programmes={programmes}
+                        moyens_paiement={moyens_paiement}/>
                     </div>
                 </div>
               </div>

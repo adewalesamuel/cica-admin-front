@@ -65,10 +65,16 @@ export function InscriptionForm(props) {
 				<div className='col-12'>
                     <div className='form-group'>
                         <label htmlFor='mode_paiement'>Mode de paiement</label>
-                        <input className='form-control' type='text' id='mode_paiement' name='mode_paiement' 
-                        placeholder='Mode de paiement' value={props.useInscription.mode_paiement ?? ''}
-                        disabled={props.isDisabled} 
-                        onChange={ e => props.useInscription.setMode_paiement(e.target.value) ?? null} required/>
+                        <select className='select2 form-control' id='mode_paiement' name='mode_paiement' 
+                        value={props.useInscription.mode_paiement ?? ''} disabled={props.isDisabled} 
+                        onChange={ e => props.useInscription.setMode_paiement(e.target.value) ?? null} required>
+                            <option hidden>Choisissez un mode de paiement</option>
+                            {
+                                props.moyens_paiement.map(moyen_paiement => {
+                                    return <option key={Math.random()} value={moyen_paiement.id ?? ''}>{moyen_paiement.nom}</option>
+                                })
+                            } 
+                        </select>
                     </div>
                 </div>
 				<div className='col-12'>
