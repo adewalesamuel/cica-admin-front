@@ -4,6 +4,7 @@ import { Components } from "../components";
 import {Hooks} from '../hooks';
 import { Services } from "../services";
 import { useNavigate } from "react-router-dom";
+import { Api } from "../services/Api";
 
 
 export function ResumeListView(props) {
@@ -14,7 +15,7 @@ export function ResumeListView(props) {
 
     const [resumes, setResumes] = useState([]);
     
-    const tableHead = ['id', 'titre', 'mots_cles', 'auteurs', 'status'];
+    const tableHead = ['id', 'titre', 'mots_cles', 'auteurs', 'abstract', 'status'];
     const tableActions = ['edit', 'delete'];
 
     const findResumeIndex = data => {
@@ -41,8 +42,21 @@ export function ResumeListView(props) {
     useEffect(() => {
         Services.ResumeService.getAll(abortController.signal)
         .then(response => {
-            setResumes(response.resumes);
-        })
+            const resumeCopy = response.resumes.map(resume => {
+                return {
+                    id: resume.id,
+                    titre: resume.titre,
+                    mots_cles: resume.mots_cles,
+                    auteurs: resume.auteurs,
+                    abstract: (<a className="btn btn-link" href={`${Api.URL}/${resume.fichier_url}`}>
+                        Télécharger l'abstract
+                        </a>),
+                    status: resume.status,
+                };
+            });
+
+            setResumes(resumeCopy);
+        });
     
       return () => {
         // abortController.abort();

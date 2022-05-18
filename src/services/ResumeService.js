@@ -13,11 +13,11 @@ const getById = (id, signal) => {
 }
 
 const create = (payload, signal) => {
-    return Api.post(ENPOINTS.Resume, payload, signal)
+    return Api.postFormData(ENPOINTS.Resume, payload, signal)
 }
 
 const update = (id, payload, signal) => {
-    return Api.put(`${ENPOINTS.Resume}/${id}`, payload, signal)
+    return Api.postFormData(`${ENPOINTS.Resume}/${id}`, payload, signal)
 }
 const destroy = (id, signal) => {
     return Api.erase(`${ENPOINTS.Resume}/${id}`, signal)

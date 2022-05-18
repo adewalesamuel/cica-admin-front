@@ -34,12 +34,9 @@ export function ResumeForm(props) {
                 </div>
 				<div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='contenu'>Contenu</label>
-                        <textarea className='form-control' type='text' id='contenu' name='contenu' 
-                        placeholder='Contenu' disabled={props.isDisabled} 
-                        onChange={ e => props.useResume.setContenu(e.target.value) ?? null} required
-                        value={props.useResume.contenu ?? ''}>
-                        </textarea>
+                        <label htmlFor='fichier'>Abstract <sup>(en pdf)</sup></label>
+                        <input className='form-control' type='file' name='fichier' id='ficher' 
+                        disabled={props.isDisabled} onChange={e => props.useResume.setFichier(e.target.files[0])}/>
                     </div>
                 </div>
 				<div className='col-12'>
