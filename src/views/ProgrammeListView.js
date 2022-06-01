@@ -14,7 +14,7 @@ export function ProgrammeListView(props) {
 
     const [programmes, setProgrammes] = useState([]);
     
-    const tableHead = ['id', 'titre', 'description', 'date', 'heure'];
+    const tableHead = ['id', 'titre', 'description', 'nbr_places', 'date', 'heure'];
     const tableActions = ['edit', 'delete'];
 
     const findProgrammeIndex = data => {

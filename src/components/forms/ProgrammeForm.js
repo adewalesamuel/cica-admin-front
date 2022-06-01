@@ -1,5 +1,3 @@
-import { Components } from '..'
-
 export function ProgrammeForm(props) {
     return (
         <form className='form' disabled={props.isDisabled ?? false}
@@ -23,6 +21,15 @@ export function ProgrammeForm(props) {
                         onChange={ e => props.useProgramme.setDescription(e.target.value) ?? null} required>
 
                         </textarea>
+                    </div>
+                </div>
+                <div className='col-12'>
+                    <div className='form-group'>
+                        <label htmlFor='nbr_places'>Nombre de places</label>
+                        <input className='form-control' type='number' id='nbr_places' name='nbr_places' 
+                        placeholder='Nombre de places' value={props.useProgramme.nbr_places ?? ''}
+                        disabled={props.isDisabled} 
+                        onChange={ e => props.useProgramme.setNbr_places(e.target.value) ?? null} required/>
                     </div>
                 </div>
 				<div className='col-12'>

@@ -1,5 +1,3 @@
-import { Components } from '..'
-
 export function CategorieForm(props) {
     return (
         <form className='form' disabled={props.isDisabled ?? false}

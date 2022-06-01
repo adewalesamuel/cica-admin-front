@@ -1,11 +1,13 @@
-import { useEffect, useState, } from "react";
+import { useEffect, useMemo, useState, } from "react";
 import { Components } from "../components";
 import {Hooks} from '../hooks';
 import { useNavigate, useParams } from "react-router-dom";
 
 
 export function AdministrateurEditView(props) {
-  const abortController = new AbortController();
+  const abortController = useMemo(() => {
+    return new AbortController();
+  }, []);
   const useAdministrateur = Hooks.useAdministrateur();
   const navigate = useNavigate();
   const administrateurId = useParams().id;
@@ -28,12 +30,12 @@ export function AdministrateurEditView(props) {
 
       useAdministrateur.getAdministrateur(administrateurId, abortController.signal)
       .then(() => setIsDisabled(false))
-      .catch(err => {setIsDisabled(false); console.log("error");});
+      .catch(err => {setIsDisabled(false)});
     
       return () => {
         // abortController.abort();
       }
-    }, [])
+    }, [abortController, administrateurId])
     
     return (
         <>

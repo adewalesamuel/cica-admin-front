@@ -1,5 +1,3 @@
-import { Components } from '..'
-
 export function TelechargementForm(props) {
     return (
         <form className='form' disabled={props.isDisabled ?? false}

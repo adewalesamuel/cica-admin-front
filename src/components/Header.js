@@ -79,20 +79,20 @@ export function Header(props) {
                         </button>
                         <div className="dropdown-menu dropdown-menu-right">
                 
-                            <a href="#" className="dropdown-item notify-item">
-                                <img src="assets/images/flags/spain.jpg" alt="user-image" className="mr-2" height="12" /><span className="align-middle">Spanish</span>
+                            <a href="/#" className="dropdown-item notify-item">
+                                <img src="assets/images/flags/spain.jpg" alt="" className="mr-2" height="12" /><span className="align-middle">Spanish</span>
                             </a>
 
-                            <a href="#" className="dropdown-item notify-item">
-                                <img src="assets/images/flags/germany.jpg" alt="user-image" className="mr-2" height="12" /><span className="align-middle">German</span>
+                            <a href="/#" className="dropdown-item notify-item">
+                                <img src="assets/images/flags/germany.jpg" alt="" className="mr-2" height="12" /><span className="align-middle">German</span>
                             </a>
 
-                            <a href="#" className="dropdown-item notify-item">
-                                <img src="assets/images/flags/italy.jpg" alt="user-image" className="mr-2" height="12" /><span className="align-middle">Italian</span>
+                            <a href="/#" className="dropdown-item notify-item">
+                                <img src="assets/images/flags/italy.jpg" alt="" className="mr-2" height="12" /><span className="align-middle">Italian</span>
                             </a>
 
-                            <a href="#" className="dropdown-item notify-item">
-                                <img src="assets/images/flags/russia.jpg" alt="user-image" className="mr-2" height="12" /><span className="align-middle">Russian</span>
+                            <a href="/#" className="dropdown-item notify-item">
+                                <img src="assets/images/flags/russia.jpg" alt="" className="mr-2" height="12" /><span className="align-middle">Russian</span>
                             </a>
                         </div>
                     </div>
@@ -128,7 +128,7 @@ export function Header(props) {
                                 </div>
                             </div>
                             <div data-simplebar style={{maxHeight: '230px'}}>
-                                <a href="#" className="text-reset notification-item">
+                                <a href="/#" className="text-reset notification-item">
                                     <div className="media">
                                         <div className="avatar-xs mr-3">
                                             <span className="avatar-title bg-primary rounded-circle font-size-16">
@@ -144,7 +144,7 @@ export function Header(props) {
                                         </div>
                                     </div>
                                 </a>
-                                <a href="#" className="text-reset notification-item">
+                                <a href="/#" className="text-reset notification-item">
                                     <div className="media">
                                         <img src="assets/images/users/avatar-3.jpg /"
                                             className="mr-3 rounded-circle avatar-xs" alt="user-pic" />
@@ -157,7 +157,7 @@ export function Header(props) {
                                         </div>
                                     </div>
                                 </a>
-                                <a href="#" className="text-reset notification-item">
+                                <a href="/#" className="text-reset notification-item">
                                     <div className="media">
                                         <div className="avatar-xs mr-3">
                                             <span className="avatar-title bg-success rounded-circle font-size-16">
@@ -174,7 +174,7 @@ export function Header(props) {
                                     </div>
                                 </a>
 
-                                <a href="#" className="text-reset notification-item">
+                                <a href="/#" className="text-reset notification-item">
                                     <div className="media">
                                         <img src="assets/images/users/avatar-4.jpg /"
                                             className="mr-3 rounded-circle avatar-xs" alt="user-pic" />
@@ -189,7 +189,7 @@ export function Header(props) {
                                 </a>
                             </div>
                             <div className="p-2 border-top">
-                                <a className="btn-link btn btn-block text-center" href="##">
+                                <a className="btn-link btn btn-block text-center" href="/##">
                                     <i className="mdi mdi-arrow-down-circle mr-1"></i> Load More..
                                 </a>
                             </div>
@@ -208,12 +208,12 @@ export function Header(props) {
                             <i className="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                         </button>
                         <div className="dropdown-menu dropdown-menu-right">
-                            <a className="dropdown-item" href="##"><i className="mdi mdi-face-profile font-size-16 align-middle mr-1"></i> Profile</a>
-                            {/* <a className="dropdown-item" href="##"><i className="mdi mdi-credit-card-outline font-size-16 align-middle mr-1"></i> Billing</a>
-                            <a className="dropdown-item" href="##"><i className="mdi mdi-account-settings font-size-16 align-middle mr-1"></i> Settings</a>
-                            <a className="dropdown-item" href="##"><i className="mdi mdi-lock font-size-16 align-middle mr-1"></i> Lock screen</a> */}
+                            <a className="dropdown-item" href="/##"><i className="mdi mdi-face-profile font-size-16 align-middle mr-1"></i> Profile</a>
+                            {/* <a className="dropdown-item" href="/##"><i className="mdi mdi-credit-card-outline font-size-16 align-middle mr-1"></i> Billing</a>
+                            <a className="dropdown-item" href="/##"><i className="mdi mdi-account-settings font-size-16 align-middle mr-1"></i> Settings</a>
+                            <a className="dropdown-item" href="/##"><i className="mdi mdi-lock font-size-16 align-middle mr-1"></i> Lock screen</a> */}
                             <div className="dropdown-divider"></div>
-                            <a className="dropdown-item" href="#" onClick={logout}><i className="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout</a>
+                            <a className="dropdown-item" href="/#" onClick={logout}><i className="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout</a>
                         </div>
                     </div>
         

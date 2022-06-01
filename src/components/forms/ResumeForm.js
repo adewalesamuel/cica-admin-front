@@ -1,5 +1,3 @@
-import { Components } from '..'
-
 export function ResumeForm(props) {
     return (
         <form className='form' disabled={props.isDisabled ?? false}

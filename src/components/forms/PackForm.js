@@ -1,5 +1,3 @@
-import { Components } from '..'
-
 export function PackForm(props) {
     return (
         <form className='form' disabled={props.isDisabled ?? false}

@@ -5,6 +5,7 @@ export const useProgramme = () => {
     const [id, setId] = useState('');
 	const [titre, setTitre] = useState('');
 	const [description, setDescription] = useState('');
+    const [nbr_places, setNbr_places] = useState('');
 	const [date, setDate] = useState('');
 	const [heure, setHeure] = useState('');
 	const [categorie_id, setCategorie_id] = useState('');
@@ -28,6 +29,7 @@ export const useProgramme = () => {
 		date,
 		heure,
 		categorie_id,
+        nbr_places
 		
         };
 
@@ -40,6 +42,7 @@ export const useProgramme = () => {
 		date,
 		heure,
 		categorie_id,
+        nbr_places
 		
         };
 
@@ -55,6 +58,7 @@ export const useProgramme = () => {
 		setDate(programme.date ?? '');
 		setHeure(programme.heure ?? '');
 		setCategorie_id(programme.categorie_id ?? '');
+        setNbr_places(programme.nbr_places ?? '');
 		
     }
     const emptyProgramme = () => {
@@ -64,6 +68,7 @@ export const useProgramme = () => {
 		setDate('');
 		setHeure('');
 		setCategorie_id('');
+        setNbr_places('');
 		
     }
 
@@ -71,6 +76,7 @@ export const useProgramme = () => {
         id,
         titre,
 		description,
+        nbr_places,
 		date,
 		heure,
 		categorie_id,
@@ -79,6 +85,7 @@ export const useProgramme = () => {
         isDisabled,
         setTitre,
 		setDescription,
+        setNbr_places,
 		setDate,
 		setHeure,
 		setCategorie_id,

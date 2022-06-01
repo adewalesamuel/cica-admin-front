@@ -9,10 +9,10 @@ export function MainLayout(props) {
     window.document.body.className = "";
     const navigate = useNavigate();
     const isLoggedIn = Utils.Auth.isLoggedIn();
-
+    
     useEffect(() => {
         if (!isLoggedIn) navigate('/auth');
-    }, []);
+    }, [isLoggedIn, navigate]);
 
     if (!isLoggedIn) return null;
 

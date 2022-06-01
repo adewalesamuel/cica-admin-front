@@ -1,5 +1,3 @@
-import { Components } from '..'
-
 export function PaiementGatewayForm(props) {
     return (
         <form className='form' disabled={props.isDisabled ?? false}
